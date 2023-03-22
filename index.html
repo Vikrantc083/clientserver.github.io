@@ -24,6 +24,7 @@
   
   <script src="/socket.io/socket.io.js"></script>
   <script>
+    const io = new Server(server);
     var socket = io();
   
     var messages = document.getElementById('messages');
