@@ -14,9 +14,7 @@ app.get('/', (req, res) => {
 
 });   
 app.use(express.static(__dirname + '/public'));
-app.get('/:room', (req, res) => {
-  res.render('room', { roomId: req.params.room });
-});
+
 
 app.get(`/${ur}`,(req,res)=>{  
 res.sendFile(__dirname + '/public/index.html');
