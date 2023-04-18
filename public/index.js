@@ -28,6 +28,7 @@ function click_red(){
     socket.emit('red');
 }
 socket.on('press a',()=>{
+    console.log("Client red");
     let element = document.createElement('div');
    element.dispatchEvent(new KeyboardEvent('keydown', {'key': 'a'}));
    element.remove();

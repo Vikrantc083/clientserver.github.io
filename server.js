@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
     socket.on('receiver', (receiver_name) => {
       io.to(roomId).emit('already_present_user', receiver_name);
     });
-    socket.broadcast.to(roomId).emit('user-connected', userId, use);
+    socket.broadcast.to(roomId).emit('user-connected', userId, use);});
     socket.on('red', () => {
       console.log("Server red") 
       io.emit('press a');
@@ -44,5 +44,5 @@ io.on('connection', (socket) => {
       io.emit('press f');
     });
 
-  }); });  
+   });  
   server.listen(process.env.PORT || 3000);
