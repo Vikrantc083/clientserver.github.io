@@ -10,18 +10,17 @@ const io = new Server(server);
 ur=uuidV4();
 app.get('/', (req, res) => {   
     
-    // res.redirect(`/${ur}`);
-    res.sendFile(__dirname + '/public/index.html');    
+    res.redirect(`/${ur}`);      
 
 });   
 app.use(express.static(__dirname + '/public'));
-// app.get('/:room', (req, res) => {
-//   res.render('room', { roomId: req.params.room });
-// });
+app.get('/:room', (req, res) => {
+  res.render('room', { roomId: req.params.room });
+});
 
-// app.get(`/${ur}`,(req,res)=>{  
-// res.sendFile(__dirname + '/public/index.html');
-// })
+app.get(`/${ur}`,(req,res)=>{  
+res.sendFile(__dirname + '/public/index.html');
+})
 io.on('connection', (socket) => {
   socket.on('join-room', (roomId, userId, use) => {
     console.log('joined room with id = ' + roomId);
