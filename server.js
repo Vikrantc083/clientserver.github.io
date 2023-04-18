@@ -1,27 +1,44 @@
-const express = require('express'); //requires express module
-const socket = require('socket.io'); //requires socket.io module
-const fs = require('fs');
+const express = require('express');
 const app = express();
-var PORT = process.env.PORT || 3000;
-const server = app.listen(PORT); //tells to host server on localhost:3000
+const { v4: uuidV4 } = require('uuid');
+const http = require('http');
+const server = http.createServer(app); 
+const { Server } = require("socket.io");
+const { log } = require('console');
+const io = new Server(server); 
+ur=uuidV4();
+app.get('/', (req, res) => {   
+    
+    res.redirect(`/${ur}`);      
 
+});   
+app.use(express.static(__dirname + '/public'));
 
-//Playing variables:
-app.use(express.static('public')); //show static files in 'public' directory
-console.log('Server is running');
-const io = socket(server);
-
-var count = 0;
-
-
-//Socket.io Connection------------------
-io.on('connection', (socket) => {
-
-    console.log("New socket connection: " + socket.id)
-
-    socket.on('counter', () => {
-        count++;
-        console.log(count)
-        io.emit('counter', count);
-    })
+// app.get("/395bc756-d550-496f-a662-5ce1124f2642",(req,res)=>{
+// res.sendFile(__dirname + '/index.html');
+// })
+app.get(`/${ur}`,(req,res)=>{  
+res.sendFile(__dirname + '/public/index.html');
 })
+io.on('connection', (socket) => {
+    socket.on('red', () => {
+      console.log("Server red") 
+      io.emit('press a');
+    });
+    socket.on('blue', () => {
+      console.log("Server blue") 
+      io.emit('press s');
+    });
+    socket.on('green', () => {
+      console.log("Server green") 
+      io.emit('press d');
+    });
+    socket.on('yellow', () => {
+      console.log("Server yellow") 
+      io.emit('press f');
+    });
+
+  });   
+server.listen(3000, () => {
+  console.log('listening on *:3000');
+});

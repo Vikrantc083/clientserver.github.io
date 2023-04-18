@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Let's Rock</title>
+  </head>
+  <link rel="stylesheet" href="assets/styles/app.css" />
+  <link
+      rel="shortcut icon"
+      href="/assets/img/piano.png"
+      type="image/x-icon"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js"></script>
+      <script src="piano.js"></script>
+  <body>
+    <div class="music_btns">
+    <button id="guitar_btn" onclick="play_guitar()">Guitar</button>
+    <button id="piano_btn" onclick="play_piano()">Piano</button> 
+  </div>    
+    <div class="instruments">
+      <div class="piano" visible="false">
+        <div data-note="A" class="key white">
+          <span class="info">A</span>
+        </div>
+        <div data-note="W" class="key black">
+          <span class="info">W</span>
+        </div>
+        <div data-note="S" class="key white">
+          <span class="info">S</span>
+        </div>
+        <div data-note="E" class="key black">
+          <span class="info">E</span>
+        </div>
+        <div data-note="D" class="key white">
+          <span class="info">D</span>
+        </div>
+        <div data-note="F" class="key black">
+          <span class="info">F</span>
+        </div>
+        <div data-note="T" class="key white">
+          <span class="info">T</span>
+        </div>
+        <div data-note="G" class="key black">
+          <span class="info">G</span>
+        </div>
+        <div data-note="Y" class="key white">
+          <span class="info">Y</span>
+        </div>
+        <div data-note="H" class="key black">
+          <span class="info">H</span>
+        </div>
+        <div data-note="U" class="key white">
+          <span class="info">U</span>
+        </div>
+        <div data-note="J" class="key black">
+          <span class="info">J</span>
+        </div>
+        <div data-note="I" class="key white">
+          <span class="info">I</span>
+        </div>
+        <div data-note="K" class="key black">
+          <span class="info">K</span>
+        </div>
+        <div data-note="O" class="key white">
+          <span class="info">O</span>
+        </div>
+        <div data-note="P" class="key black">
+          <span class="info">P</span>
+        </div>
+        <div data-note="L" class="key white">
+          <span class="info">L</span>
+        </div>
+      </div>
+      <!-- audio -->
+      <div>
+        <audio id="A" src="/assets/audio/040.wav"></audio>
+        <audio id="W" src="/assets/audio/041.wav"></audio>
+        <audio id="S" src="/assets/audio/042.wav"></audio>
+        <audio id="E" src="/assets/audio/043.wav"></audio>
+        <audio id="D" src="/assets/audio/044.wav"></audio>
+        <audio id="F" src="/assets/audio/045.wav"></audio>
+        <audio id="T" src="/assets/audio/046.wav"></audio>
+        <audio id="G" src="/assets/audio/047.wav"></audio>
+        <audio id="Y" src="/assets/audio/048.wav"></audio>
+        <audio id="H" src="/assets/audio/049.wav"></audio>
+        <audio id="U" src="/assets/audio/050.wav"></audio>
+        <audio id="J" src="/assets/audio/051.wav"></audio>
+        <audio id="I" src="/assets/audio/052.wav"></audio>
+        <audio id="K" src="/assets/audio/053.wav"></audio>
+        <audio id="O" src="/assets/audio/054.wav"></audio>
+        <audio id="P" src="/assets/audio/055.wav"></audio>
+        <audio id="L" src="/assets/audio/056.wav"></audio>
+      </div>
+    <div class="guitar">
+      <div class="red" background="red" onclick="click_red()">
+      </div>
+      <div class="blue" background="blue" onclick="click_blue()">
+      </div>
+      <div class="green" background="green" onclick="click_green()">
+      </div>
+      <div class="yellow" background="yellow" onclick="click_yellow()">
+      </div>
+    </div>
+    
+  </div>
+  </body>
+  
+
+</html>
